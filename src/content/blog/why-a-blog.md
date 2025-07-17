@@ -2,7 +2,7 @@
 title: "Perché ho aperto questo blog"
 description: "Scrivere per capire meglio quello che imparo."
 pubDate: "2025-07-16"
-heroImage: '../../../public/images/blog-placeholder-1.jpg'
+heroImage: '../../assets/blog-placeholder-1.jpg'
 ---
 
 Ho deciso di aprire questo blog per due motivi:
