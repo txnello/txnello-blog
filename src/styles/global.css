@@ -153,3 +153,95 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+/* Mobile first: hide the menu */
+.internal-links {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Shows the hamburger button on mobile */
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  align-self: start;
+
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  overflow: visible;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  padding: 0;
+}
+
+/* Activates the menu on tap */
+nav.open .internal-links {
+  display: flex;
+}
+
+/* Hide site title when menu is open */
+nav.open .site-title {
+  display: none;
+}
+
+/* Desktop: shows the menu and hides the hamburger button */
+@media (min-width: 768px) {
+  .internal-links {
+    display: flex !important;
+    flex-direction: row;
+  }
+  .menu-toggle {
+    display: none;
+  }
+}
+
+.bar {
+  height: 3px;
+  width: 24px; /* Slightly smaller to prevent overflow */
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: center;
+}
+
+/* Default positions for hamburger lines */
+.bar.top {
+  top: 8px;
+}
+
+.bar.middle {
+  top: 18px;
+}
+
+.bar.bottom {
+  top: 28px;
+}
+
+/* Transform hamburger into X when nav is open */
+nav.open .menu-toggle .top {
+  transform: translateX(-50%) rotate(45deg);
+  top: 18px; /* Centered */
+}
+
+nav.open .menu-toggle .middle {
+  opacity: 0;
+}
+
+nav.open .menu-toggle .bottom {
+  transform: translateX(-50%) rotate(-45deg);
+  top: 18px; /* Centered */
+}
+
