@@ -5,7 +5,7 @@ pubDate: "2025-07-17"
 heroImage: '../../assets/intro-vbnet-cover.jpg'
 ---
 
-## Difference between ByVal and ByRef
+### Difference between ByVal and ByRef
 
 **ByVal** passes a copy of the value to the procedure, so changes won’t affect the original variable.
 
@@ -17,7 +17,7 @@ If you pass an object ByRef and set it to Nothing inside a Sub, it will actually
 
 ---
 
-## Strong typing and conversions (CInt(), CStr(), TryParse)
+### Strong typing and conversions (CInt(), CStr(), TryParse)
 
 VB.NET is strongly typed, so you must explicitly convert types when needed.
 
@@ -35,7 +35,7 @@ End If
 
 ---
 
-## Flow control (With, Using, Select Case, Do While)
+### Flow control (With, Using, Select Case, Do While)
 
 * `With`: simplifies repeated access to object members  
 * `Using`: ensures automatic disposal of resources (e.g. files, DB)  
@@ -51,7 +51,7 @@ End Using
 
 ---
 
-## Differences between Module, Class, Structure, Interface
+### Differences between Module, Class, Structure, Interface
 
 * `Module`: contains shared members, cannot be instantiated  
 * `Class`: dynamic reference type, supports inheritance  
@@ -60,11 +60,11 @@ End Using
 
 ---
 
-# Object-Oriented Programming in VB.NET
+## Object-Oriented Programming in VB.NET
 
 ---
 
-## OOP concepts: inheritance, polymorphism, encapsulation
+### OOP concepts: inheritance, polymorphism, encapsulation
 
 * **Inheritance**: a class can extend another (`Inherits`)  
 * **Polymorphism**: different objects respond to common calls  
@@ -72,7 +72,7 @@ End Using
 
 ---
 
-## Constructors, properties, Overloading and Overriding
+### Constructors, properties, Overloading and Overriding
 
 * The **constructor** (`Sub New`) initializes objects  
 * **Properties** (`Property`) encapsulate field and access  
@@ -81,21 +81,21 @@ End Using
 
 ---
 
-## Difference between Overrides and Overloads
+### Difference between Overrides and Overloads
 
 * `Overrides`: used to override an inherited method  
 * `Overloads`: defines multiple variants of a method with different parameters
 
 ---
 
-## MustInherit vs NotInheritable
+### MustInherit vs NotInheritable
 
 * `MustInherit`: abstract class, cannot be instantiated, may contain `MustOverride` methods  
 * `NotInheritable`: cannot be inherited, useful for final classes
 
 ---
 
-## Using interfaces (Implements)
+### Using interfaces (Implements)
 
 ```vbnet
 Public Interface IPrintable
@@ -113,18 +113,18 @@ End Class
 
 ---
 
-## Custom attributes
+### Custom attributes
 
 Attributes allow decorating classes, methods, or properties with metadata.  
 You can create a custom attribute by inheriting from `System.Attribute`.
 
 ---
 
-# Data Access with ADO.NET
+## Data Access with ADO.NET
 
 ---
 
-## How to connect to SQL Server?
+### How to connect to SQL Server?
 
 ```vbnet
 Using conn As New SqlConnection("your_conn_string")
@@ -140,7 +140,7 @@ End Using
 
 ---
 
-## Preventing SQL Injection
+### Preventing SQL Injection
 
 ```vbnet
 cmd.CommandText = "SELECT * FROM Users WHERE Name = @name"
@@ -151,7 +151,7 @@ This protects against query manipulation.
 
 ---
 
-## Difference between DataSet, DataTable, DataReader
+### Difference between DataSet, DataTable, DataReader
 
 * `DataReader`: forward-only access, efficient  
 * `DataTable`: represents an in-memory table  
@@ -159,11 +159,11 @@ This protects against query manipulation.
 
 ---
 
-# Debugging and Maintenance
+## Debugging and Maintenance
 
 ---
 
-## How do you handle spaghetti legacy code?
+### How do you handle spaghetti legacy code?
 
 * Analyze and understand the logic  
 * Gradually refactor to separate responsibilities  
@@ -173,7 +173,7 @@ This protects against query manipulation.
 
 ---
 
-## Debugging tools
+### Debugging tools
 
 * Breakpoints  
 * Watch / Autos  
@@ -184,11 +184,11 @@ Essential tools in Visual Studio for effective debugging.
 
 ---
 
-# Typical Exercises
+## Typical Exercises
 
 ---
 
-## Function that counts vowels
+### Function that counts vowels
 
 ```vbnet
 Function CountVowels(input As String) As Integer
@@ -202,7 +202,7 @@ End Function
 
 ---
 
-## Persona class with ToString()
+### Persona class with ToString()
 
 ```vbnet
 Public Class Person
@@ -222,7 +222,7 @@ End Class
 
 ---
 
-## Difference between Shared and Non-Shared
+### Difference between Shared and Non-Shared
 
 * `Shared`: belongs to the class, accessible without creating an instance  
 * `Non-Shared`: each object has its own copy  

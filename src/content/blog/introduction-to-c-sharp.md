@@ -5,7 +5,7 @@ pubDate: "2025-07-17"
 heroImage: '../../assets/intro-csharp-cover.jpg'
 ---
 
-## What is the difference between value types and reference types?
+### What is the difference between value types and reference types?
 
 **Answer:**
 
@@ -18,7 +18,7 @@ In C#, types are divided into:
 
 ---
 
-## What is the role of `var` compared to explicit types?
+### What is the role of `var` compared to explicit types?
 
 **Answer:** `var` is a keyword that allows the compiler to infer the variable’s type automatically, provided it’s initialized immediately.
 
@@ -34,7 +34,7 @@ It’s not synonymous with “weak typing”: the type is still determined at co
 
 ---
 
-## How does exception handling work (try, catch, finally)?
+### How does exception handling work (try, catch, finally)?
 
 **Answer:**
 
@@ -61,11 +61,11 @@ finally
 
 ---
 
-# Object-Oriented Programming (OOP)
+## Object-Oriented Programming (OOP)
 
 ---
 
-## Explain inheritance, encapsulation, and polymorphism
+### Explain inheritance, encapsulation, and polymorphism
 
 **Answer:**
 
@@ -89,7 +89,7 @@ public class Dog : Animal
 
 ---
 
-## Difference between abstract, virtual, override, sealed
+### Difference between abstract, virtual, override, sealed
 
 **Answer:**
 
@@ -114,7 +114,7 @@ public class Car : Vehicle
 
 ---
 
-## What are interfaces in C#?
+### What are interfaces in C#?
 
 **Answer:**
 
@@ -139,11 +139,11 @@ Interfaces are essential for loosely coupled programming, testability, and depen
 
 ---
 
-# Delegates, LINQ, and async
+## Delegates, LINQ, and async
 
 ---
 
-## What is a delegate?
+### What is a delegate?
 
 **Answer:**
 
@@ -163,7 +163,7 @@ Useful with events, callbacks, and functional programming.
 
 ---
 
-## What is LINQ and how is it used?
+### What is LINQ and how is it used?
 
 **Answer:**
 
@@ -181,7 +181,7 @@ Allows filtering (`Where`), transformations (`Select`), sorting (`OrderBy`), agg
 
 ---
 
-## Explain async, await, and Task
+### Explain async, await, and Task
 
 **Answer:**
 
@@ -202,11 +202,11 @@ Useful for I/O, HTTP calls, DB access, etc.
 
 ---
 
-# Data Access
+## Data Access
 
 ---
 
-## Difference between ADO.NET and Entity Framework
+### Difference between ADO.NET and Entity Framework
 
 **Answer:**
 
@@ -230,7 +230,7 @@ var clients = context.Clients.Where(c => c.Active).ToList();
 
 ---
 
-## How to protect against SQL Injection?
+### How to protect against SQL Injection?
 
 **Answer:**
 
@@ -245,11 +245,11 @@ In EF, it’s automatically handled via LINQ.
 
 ---
 
-# Best Practices
+## Best Practices
 
 ---
 
-## What is IDisposable and how is it used?
+### What is IDisposable and how is it used?
 
 **Answer:** `IDisposable` is an interface that defines the `Dispose()` method for releasing unmanaged resources (e.g. files, DB)
 
@@ -274,7 +274,7 @@ With `using`, `Dispose()` is called automatically.
 
 ---
 
-## What are the SOLID principles?
+### What are the SOLID principles?
 
 **Answer:**
 
@@ -288,11 +288,11 @@ These principles help write scalable, testable, maintainable code.
 
 ---
 
-# Common Practice Exercises
+## Common Practice Exercises
 
 ---
 
-## Write a function that sums only even numbers in a list
+### Write a function that sums only even numbers in a list
 
 ```csharp
 public int SumEven(List<int> numbers)

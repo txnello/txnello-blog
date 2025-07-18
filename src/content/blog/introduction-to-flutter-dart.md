@@ -5,7 +5,7 @@ pubDate: "2025-07-17"
 heroImage: '../../assets/intro-flutter-dart-cover.jpg'
 ---
 
-## What is Dart and what are its main features?
+### What is Dart and what are its main features?
 
 **Answer:**
 
@@ -19,7 +19,7 @@ Dart is a programming language developed by Google, primarily designed for cross
 
 ---
 
-## What’s the difference between var, final, and const?
+### What’s the difference between var, final, and const?
 
 **Answer:**
 
@@ -35,7 +35,7 @@ const pi = 3.14;              // pure constant
 
 ---
 
-## How do you define a function with optional and default parameters?
+### How do you define a function with optional and default parameters?
 
 **Answer:**
 
@@ -50,7 +50,7 @@ You can assign default values. Dart also supports optional positional parameters
 
 ---
 
-## What’s the difference between classes and mixins?
+### What’s the difference between classes and mixins?
 
 **Answer:**
 
@@ -73,7 +73,7 @@ Mixins are great for reusing logic without complex hierarchies.
 
 ---
 
-## What are Future, async/await, and Stream?
+### What are Future, async/await, and Stream?
 
 **Answer:**
 
@@ -91,11 +91,11 @@ Future<String> greetLater() async {
 
 ---
 
-# Flutter Concepts
+## Flutter Concepts
 
 ---
 
-## What’s the difference between StatelessWidget and StatefulWidget?
+### What’s the difference between StatelessWidget and StatefulWidget?
 
 **Answer:**
 
@@ -139,7 +139,7 @@ class _CounterState extends State<Counter> {
 
 ---
 
-## What is the lifecycle of a StatefulWidget?
+### What is the lifecycle of a StatefulWidget?
 
 **Answer:**
 
@@ -154,7 +154,7 @@ Used to manage resources (e.g. controllers, listeners)
 
 ---
 
-## How do you navigate between screens?
+### How do you navigate between screens?
 
 **Answer:**
 
@@ -181,7 +181,7 @@ Routes must be configured in `MaterialApp` → `routes`
 
 ---
 
-## How is state managed in Flutter?
+### How is state managed in Flutter?
 
 **Answer:**
 
@@ -196,11 +196,11 @@ Companies often use Provider or Riverpod for simplicity and testability.
 
 ---
 
-# Practical Questions
+## Practical Questions
 
 ---
 
-## How do you create a dynamic scrollable list?
+### How do you create a dynamic scrollable list?
 
 ```dart
 ListView.builder(
@@ -217,7 +217,7 @@ Ideal when list length is dynamic or large.
 
 ---
 
-## How do you display an image from the network?
+### How do you display an image from the network?
 
 ```dart
 Image.network("https://example.com/img.jpg");
@@ -227,7 +227,7 @@ You can also use `Image.asset()` for local images.
 
 ---
 
-## How do you add padding and margin?
+### How do you add padding and margin?
 
 **Answer:**
 
@@ -250,7 +250,7 @@ Container(
 
 ---
 
-## How do you implement a login screen with validation?
+### How do you implement a login screen with validation?
 
 **Answer:**
 
@@ -283,7 +283,7 @@ Form(
 
 ---
 
-## How do you make HTTP requests?
+### How do you make HTTP requests?
 
 **Answer:**
 
@@ -307,11 +307,11 @@ Use `try`/`catch` and handle errors properly.
 
 ---
 
-# Package Management
+## Package Management
 
 ---
 
-## What is pubspec.yaml?
+### What is pubspec.yaml?
 
 **Answer:**
 

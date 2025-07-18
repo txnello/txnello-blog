@@ -9,7 +9,7 @@ It's an acronym for 5 best practices that help in OOP.
 Created by Uncle Bob.
 
 ---
-## **S**ingle responsibility principle
+### **S**ingle responsibility principle
 
 Classes must do only one thing and therefore have only one reason to change.
 
@@ -17,7 +17,7 @@ For example, if a class functions as a data container, it should only change whe
 
 This is useful when we encounter merge conflicts, as we immediately know what the class is responsible for.
 
-### Example of SRP violation and correction
+#### Example of SRP violation and correction
 
 Suppose we have a class called `Invoice`, which, given a book and some data like quantity and price, calculates the receipt. Here's a structure that violates SRP:
 
@@ -108,7 +108,7 @@ public class InvoicePersistence {
 ```
 
 ---
-## **O**pen-closed principle
+### **O**pen-closed principle
 
 Classes should be open to extension but closed to modification.
 
@@ -154,7 +154,7 @@ public class PersistenceManager {
 We could assign both `DatabasePersistence` and `FilePersistence` to `invoicePersistence`. It’s a matter of flexibility.
 
 ---
-## **L**iskov substitution principle
+### **L**iskov substitution principle
 
 This principle expects child classes to inherit everything from the parent and at most extend it by adding features. So if I pass a child object to a method that expects a parent object, it shouldn't behave incorrectly.
 
@@ -185,12 +185,12 @@ class Square : Rectangle {
 In this case, passing a `Square` as a `Rectangle` breaks functionality, because setting either Height or Width changes both — which shouldn't happen in a proper `Rectangle`.
 
 ---
-## **I**nterface segregation principle
+### **I**nterface segregation principle
 
 Keeping interfaces separate means the developer shouldn’t be forced to implement a method they don’t need. Therefore, interfaces should be properly divided.
 
 ---
-## **D**ependency inversion principle
+### **D**ependency inversion principle
 
 High-level modules shouldn’t depend on low-level ones. Both should depend on abstractions.  
 Moreover, abstractions shouldn’t depend on details — details should depend on abstractions.
