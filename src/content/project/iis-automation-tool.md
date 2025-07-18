@@ -15,11 +15,11 @@ heroImage: '../../assets/iis-automation-tool-cover.jpg'
 
 ---
 
-### **→ <a href="https://drive.google.com/file/d/15C7XP8-kj-J2JI62GUeQtEi-yHSj86QF/view?usp=sharing" target="_blank">Click here to download the latest version!</a> ←**
+#### **→ <a href="https://drive.google.com/file/d/15C7XP8-kj-J2JI62GUeQtEi-yHSj86QF/view?usp=sharing" target="_blank">Click here to download the latest version!</a> ←**
 
 ---
 
-## To-Do List
+### To-Do List
 
 - Always open the program with **administrator** privileges (from version 1.1 it should already open in admin mode, at most just make sure that’s actually the case)
 - Create 2 workspaces: one for CRM and one for HDA
@@ -27,7 +27,7 @@ heroImage: '../../assets/iis-automation-tool-cover.jpg'
 
 ![image](https://github.com/user-attachments/assets/6c59461b-439b-48a5-bb6e-b66a16692eca)
 
-## Guide (v1.0)
+### Guide (v1.0)
 
 Download the package and launch the program.
 
@@ -43,7 +43,7 @@ Then, refresh the pools or check the logs.
 
 ![image 3](https://github.com/user-attachments/assets/210df665-f6bd-401b-a785-f14a6bd19184)
 
-## Version 1.1
+### Version 1.1
 
 Starting from this version, some extra commands have been added (in the screenshot they are read-only just because I didn’t feel like filling in the fields):
 
@@ -57,32 +57,32 @@ Starting from this version, some extra commands have been added (in the screensh
 
 **Open WSC4**: opens the WSC4 of the project in the default browser.
 
-### Notification when a new version is available
+#### Notification when a new version is available
 
 ![image 5](https://github.com/user-attachments/assets/2db778e2-df78-48d0-a96a-a21794fe2d88)
 
-### Minimize to tray area
+#### Minimize to tray area
 
 ![image 6](https://github.com/user-attachments/assets/704df417-5e5b-4e0e-ae6e-7815e5a5d750)
 
 ![image 7](https://github.com/user-attachments/assets/3c1a7cc2-d162-4325-b8aa-7c5dea281e44)
 
-### Error popups
+#### Error popups
 
 ![image 8](https://github.com/user-attachments/assets/90e5fc5c-0659-4c5d-8c35-f3a29686ac82)
 
-### Success popups
+#### Success popups
 
 ![image 9](https://github.com/user-attachments/assets/29b3286d-f29d-431c-aba3-de28d402e782)
 
-### Magic separator
+#### Magic separator
 
 ![image 10](https://github.com/user-attachments/assets/8464f813-323c-46fd-a67b-cbe5969b0d01)
 
-### Removed the ability to resize the window
+#### Removed the ability to resize the window
 
 ![image 11](https://github.com/user-attachments/assets/880bd4f1-0820-4f9d-853d-ae7af4a50f8b)
 
-## Version 1.2
+### Version 1.2
 
 Added scripts that were missing in previous versions 🙂
