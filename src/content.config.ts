@@ -21,9 +21,8 @@ const project = defineCollection({
 			description: z.string(),
 			tags: z.array(z.string()).optional(),
 			heroImage: image().optional(),
-			link: z.string().url().optional(), // per eventuale link al repo/demo
-			startDate: z.coerce.date().optional(),
-			endDate: z.coerce.date().optional(),
+			link: z.string().url().optional(),
+			pubDate: z.coerce.date(),
 		}),
 });
 
