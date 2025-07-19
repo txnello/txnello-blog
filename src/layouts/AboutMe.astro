@@ -8,7 +8,21 @@ import { Image } from 'astro:assets';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, location } = Astro.props;
+const { title, description, birthDate, updatedDate, heroImage, location } = Astro.props;
+
+const getAge = (birthDate) => {
+  const today = new Date();
+  const birth = new Date(birthDate);
+  let age = today.getFullYear() - birth.getFullYear();
+  const monthDiff = today.getMonth() - birth.getMonth();
+
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+    age--;
+  }
+
+  return age;
+};
+
 ---
 
 <html lang="en">
@@ -44,7 +58,10 @@ const { title, description, pubDate, updatedDate, heroImage, location } = Astro.
 				line-height: 1;
 			}
 			.title h1 {
-				margin: 0 0 0.5em 0;
+				margin: 0 0 25px 0;
+			}
+			.title p {
+				padding-top: 20px;
 			}
 			.date {
 				margin-bottom: 0.5em;
@@ -65,18 +82,18 @@ const { title, description, pubDate, updatedDate, heroImage, location } = Astro.
 				</div>
 				<div class="prose">
 					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
+						<h1>{title}</h1>
+						<div className="date">
+							🎂 {getAge(birthDate)}
 							{
 								updatedDate && (
-									<div class="last-updated-on">
+									<div className="last-updated-on">
 										Last updated on <FormattedDate date={updatedDate} />
 									</div>
 								)
 							}
 						</div>
-						<h1>{title}</h1>
-						<p>{location}</p>
+						<p class="location">{location}</p>
 						<hr />
 					</div>
 					<slot />
