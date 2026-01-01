@@ -1,45 +1,45 @@
 ---
 title: "Tomato Gym"
-description: "Track your gym progress."
+description: "Tieni traccia dei tuoi progressi in palestra."
 techs: ["Flutter", "Dart"]
 github: "https://github.com/txnello/tomato-gym"
 pubDate: "2023-08-27"
 heroImage: '../../assets/tomato-gym-cover.jpg'
 ---
 
-### Introduction
-Before we begin, "Tomato Gym" has nothing to do with tomatoes. The name was randomly chosen by the same artificial intelligence that created the cover for this page. 
-That being said, we're talking about **an Android app** that allows you to **track your gym progress** without using a data network.
+### Introduzione
+Prima di iniziare, “Tomato Gym” non ha nulla a che fare con i pomodori. Il nome è stato scelto casualmente dalla stessa intelligenza artificiale che ha creato la copertina di questa pagina.  
+Detto questo, stiamo parlando di **un’app Android** che permette di **tenere traccia dei progressi in palestra** senza utilizzare una rete dati.
 
-### Overview
-In terms of timing, this project lasted a total of **two months**, from sketching an initial design on paper to the <a href="https://github.com/txnello/tomato-gym/raw/main/apk-tomato-sauce.apk" target="_blank">publication on GitHub</a>. Being a personal project, there was no development team; I personally handled all phases of the project.
+### Panoramica
+In termini di tempistiche, questo progetto è durato complessivamente **due mesi**, dalla realizzazione dei primi schizzi su carta fino alla <a href="https://github.com/txnello/tomato-gym/raw/main/apk-tomato-sauce.apk" target="_blank">pubblicazione su GitHub</a>. Essendo un progetto personale, non c’era un team di sviluppo; ho gestito personalmente tutte le fasi del progetto.
 
-The underlying goal is very simple: to enable as many people as possible to **track their gym progress without depending on external factors**, so they can consult and modify this data anytime, anywhere.
+L’obiettivo di fondo è molto semplice: consentire al maggior numero possibile di persone di **monitorare i propri progressi in palestra senza dipendere da fattori esterni**, così da poter consultare e modificare i dati in qualsiasi momento e luogo.
 
-### Research
-To conduct research that found real-world resonance, **I narrowed down the pool of candidates to only those who frequent one or more gyms** (including myself), since the service will not be used outside of that environment. The main points of reflection found during the interviews are the following:
+### Ricerca
+Per condurre una ricerca con un reale riscontro nel mondo reale, **ho ristretto il bacino di candidati solo a chi frequenta una o più palestre** (me compreso), dato che il servizio non verrebbe utilizzato al di fuori di questo contesto. I principali punti emersi durante le interviste sono i seguenti:
 
-* **Little time to waste:** If I have to save a progress, I don't want to waste time navigating; I want to find what I'm looking for instantly after opening the app;
-* **Too expensive:** Some competitor apps require the payment of a subscription that many people do not want to pay;
-* **Not all gyms have coverage:** Some are underground or in places where the mobile network doesn't work and this prevents me from saving or consulting my data.
+* **Poco tempo da perdere:** se devo salvare un progresso, non voglio perdere tempo a navigare; voglio trovare subito ciò che cerco appena apro l’app;
+* **Troppo costoso:** alcune app concorrenti richiedono il pagamento di un abbonamento che molte persone non sono disposte a pagare;
+* **Non tutte le palestre hanno copertura:** alcune si trovano sottoterra o in zone dove la rete mobile non funziona, impedendomi di salvare o consultare i miei dati.
 
-In addition to this, I focused on the **type of clientele** I would have and noticed that a good percentage of them **use Apple devices**. This factor is certainly key to the research for my project, but given my unavailability to compile the application in a version for iOS, **I was forced to make it available only for Android users**.
+In aggiunta, mi sono concentrato sul **tipo di utenza** che avrei avuto e ho notato che una buona percentuale **utilizza dispositivi Apple**. Questo fattore è sicuramente rilevante per la ricerca del progetto, ma data la mia impossibilità di compilare l’applicazione anche per iOS, **sono stato costretto a renderla disponibile solo per utenti Android**.
 
-### Implemented Idea
-The implemented idea includes the following features:
+### Idea implementata
+L’idea implementata include le seguenti funzionalità:
 
-* Allows the user to set a period of time after which they will be **notified to remember to increase the weights**;
-* The user can set a training program divided into **one or more workouts** which in turn include **one or more exercises**;
-* The training programs are **modifiable, copyable, savable, and overwritable**;
-* Allows you to see the current load compared to the initial load;
-* **Does not require an account and/or internet connection**, all data is saved offline in the phone's memory.
+* Permette all’utente di impostare un periodo di tempo dopo il quale verrà **notificato per ricordarsi di aumentare i carichi**;
+* L’utente può impostare un programma di allenamento suddiviso in **uno o più workout**, che a loro volta includono **uno o più esercizi**;
+* I programmi di allenamento sono **modificabili, copiabili, salvabili e sovrascrivibili**;
+* Consente di visualizzare il carico attuale confrontato con il carico iniziale;
+* **Non richiede un account e/o una connessione a Internet**, tutti i dati sono salvati offline nella memoria del telefono.
 
 ![tomato-gym1](https://github.com/user-attachments/assets/0bc39ed0-8016-4a49-9fd2-3ee119eb814d)
 ![tomato-gym2](https://github.com/user-attachments/assets/8668745d-ec67-4e46-bb44-2a6e51b25cc6)
 
-### Conclusions
-Certainly, **it's not a finished app**, many interesting features could be added or existing features could be modified to make them more useful, **but as a personal project it ends here**.
+### Conclusioni
+Certamente **non si tratta di un’app completa**: molte funzionalità interessanti potrebbero essere aggiunte o migliorate, **ma come progetto personale si conclude qui**.
 
-From this experience, I learned that it is **very important to base yourself on the needs of the end user**, to understand them well and order them. I also learned that **the most complex and articulated idea is not always the best**; in this case, the chosen idea is the simplest and most intuitive.
+Da questa esperienza ho imparato che è **fondamentale partire dalle esigenze dell’utente finale**, comprenderle a fondo e ordinarle correttamente. Ho inoltre capito che **l’idea più complessa e articolata non è sempre la migliore**; in questo caso, l’idea scelta è quella più semplice e intuitiva.
 
-<a href="https://github.com/txnello/tomato-gym/raw/main/apk-tomato-sauce.apk" target="_blank">Download it from GitHub!</a>
+<a href="https://github.com/txnello/tomato-gym/raw/main/apk-tomato-sauce.apk" target="_blank">Scaricala da GitHub!</a>

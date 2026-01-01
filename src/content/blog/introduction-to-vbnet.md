@@ -1,46 +1,46 @@
 ---
-title: "Introduction to VB.NET"
-description: "Introduction to VB.NET"
+title: "Introduzione a VB.NET"
+description: "Introduzione a VB.NET"
 pubDate: "2025-07-17"
 heroImage: '../../assets/intro-vbnet-cover.jpg'
 ---
 
-### Difference between ByVal and ByRef
+### Differenza tra ByVal e ByRef
 
-**ByVal** passes a copy of the value to the procedure, so changes won’t affect the original variable.
+**ByVal** passa una copia del valore alla procedura, quindi le modifiche non influenzeranno la variabile originale.
 
-**ByRef** passes a reference to the original variable, allowing it to be modified directly.
+**ByRef** passa un riferimento alla variabile originale, permettendo di modificarla direttamente.
 
-**Practical example:**
+**Esempio pratico:**
 
-If you pass an object ByRef and set it to Nothing inside a Sub, it will actually be destroyed in the calling context.
+Se passi un oggetto ByRef e lo imposti a Nothing all’interno di una Sub, sarà effettivamente distrutto nel contesto chiamante.
 
 ---
 
-### Strong typing and conversions (CInt(), CStr(), TryParse)
+### Tipizzazione forte e conversioni (CInt(), CStr(), TryParse)
 
-VB.NET is strongly typed, so you must explicitly convert types when needed.
+VB.NET è fortemente tipizzato, quindi devi convertire esplicitamente i tipi quando necessario.
 
-* `CInt()`, `CStr()`, etc. throw exceptions if conversion fails  
-* `TryParse()` avoids errors by returning `True/False` to indicate validity
+* `CInt()`, `CStr()`, ecc. generano eccezioni se la conversione fallisce  
+* `TryParse()` evita errori restituendo `True/False` per indicare validità
 
 ```vbnet
 Dim numero As Integer
 If Integer.TryParse("123", numero) Then
     Console.WriteLine(numero)
 Else
-    Console.WriteLine("Conversion failed")
+    Console.WriteLine("Conversione fallita")
 End If
 ```
 
 ---
 
-### Flow control (With, Using, Select Case, Do While)
+### Controllo del flusso (With, Using, Select Case, Do While)
 
-* `With`: simplifies repeated access to object members  
-* `Using`: ensures automatic disposal of resources (e.g. files, DB)  
-* `Select Case`: alternative to multiple `If`  
-* `Do While / Do Until`: loops with pre/post conditions
+* `With`: semplifica l’accesso ripetuto ai membri di un oggetto  
+* `Using`: garantisce il rilascio automatico delle risorse (es. file, DB)  
+* `Select Case`: alternativa a più `If`  
+* `Do While / Do Until`: cicli con condizioni pre/post
 
 ```vbnet
 Using conn As New SqlConnection(connStr)
@@ -51,51 +51,51 @@ End Using
 
 ---
 
-### Differences between Module, Class, Structure, Interface
+### Differenze tra Module, Class, Structure, Interface
 
-* `Module`: contains shared members, cannot be instantiated  
-* `Class`: dynamic reference type, supports inheritance  
-* `Structure`: value type, lighter, good for small data  
-* `Interface`: only defines method signatures, to be implemented by concrete classes
-
----
-
-## Object-Oriented Programming in VB.NET
+* `Module`: contiene membri condivisi, non può essere istanziato  
+* `Class`: tipo riferimento dinamico, supporta l’ereditarietà  
+* `Structure`: tipo valore, leggero, adatto per piccoli dati  
+* `Interface`: definisce solo le firme dei metodi, da implementare nelle classi concrete
 
 ---
 
-### OOP concepts: inheritance, polymorphism, encapsulation
-
-* **Inheritance**: a class can extend another (`Inherits`)  
-* **Polymorphism**: different objects respond to common calls  
-* **Encapsulation**: hides internal data using properties and methods
+## Programmazione orientata agli oggetti in VB.NET
 
 ---
 
-### Constructors, properties, Overloading and Overriding
+### Concetti OOP: ereditarietà, polimorfismo, incapsulamento
 
-* The **constructor** (`Sub New`) initializes objects  
-* **Properties** (`Property`) encapsulate field and access  
-* `Overloads`: multiple versions of a method with different parameters  
-* `Overrides`: redefines an inherited method
+* **Ereditarietà**: una classe può estendere un’altra (`Inherits`)  
+* **Polimorfismo**: diversi oggetti rispondono a chiamate comuni  
+* **Incapsulamento**: nasconde i dati interni usando proprietà e metodi
 
 ---
 
-### Difference between Overrides and Overloads
+### Costruttori, proprietà, Overloading e Overriding
 
-* `Overrides`: used to override an inherited method  
-* `Overloads`: defines multiple variants of a method with different parameters
+* Il **costruttore** (`Sub New`) inizializza gli oggetti  
+* **Proprietà** (`Property`) incapsulano i campi e l’accesso  
+* `Overloads`: più versioni di un metodo con parametri diversi  
+* `Overrides`: ridefinisce un metodo ereditato
+
+---
+
+### Differenza tra Overrides e Overloads
+
+* `Overrides`: usato per sovrascrivere un metodo ereditato  
+* `Overloads`: definisce più varianti di un metodo con parametri diversi
 
 ---
 
 ### MustInherit vs NotInheritable
 
-* `MustInherit`: abstract class, cannot be instantiated, may contain `MustOverride` methods  
-* `NotInheritable`: cannot be inherited, useful for final classes
+* `MustInherit`: classe astratta, non può essere istanziata, può contenere metodi `MustOverride`  
+* `NotInheritable`: non può essere ereditata, utile per classi finali
 
 ---
 
-### Using interfaces (Implements)
+### Uso delle interfacce (Implements)
 
 ```vbnet
 Public Interface IPrintable
@@ -106,25 +106,25 @@ Public Class Document
     Implements IPrintable
 
     Public Sub Print() Implements IPrintable.Print
-        Console.WriteLine("Document printed")
+        Console.WriteLine("Documento stampato")
     End Sub
 End Class
 ```
 
 ---
 
-### Custom attributes
+### Attributi personalizzati
 
-Attributes allow decorating classes, methods, or properties with metadata.  
-You can create a custom attribute by inheriting from `System.Attribute`.
-
----
-
-## Data Access with ADO.NET
+Gli attributi permettono di decorare classi, metodi o proprietà con metadati.  
+Puoi creare un attributo personalizzato ereditando da `System.Attribute`.
 
 ---
 
-### How to connect to SQL Server?
+## Accesso ai dati con ADO.NET
+
+---
+
+### Come connettersi a SQL Server?
 
 ```vbnet
 Using conn As New SqlConnection("your_conn_string")
@@ -140,58 +140,58 @@ End Using
 
 ---
 
-### Preventing SQL Injection
+### Prevenire SQL Injection
 
 ```vbnet
 cmd.CommandText = "SELECT * FROM Users WHERE Name = @name"
 cmd.Parameters.AddWithValue("@name", txtName.Text)
 ```
 
-This protects against query manipulation.
+Questo protegge dalla manipolazione delle query.
 
 ---
 
-### Difference between DataSet, DataTable, DataReader
+### Differenza tra DataSet, DataTable, DataReader
 
-* `DataReader`: forward-only access, efficient  
-* `DataTable`: represents an in-memory table  
-* `DataSet`: container for multiple `DataTable`, useful for complex operations
-
----
-
-## Debugging and Maintenance
+* `DataReader`: accesso forward-only, efficiente  
+* `DataTable`: rappresenta una tabella in memoria  
+* `DataSet`: contenitore per più `DataTable`, utile per operazioni complesse
 
 ---
 
-### How do you handle spaghetti legacy code?
-
-* Analyze and understand the logic  
-* Gradually refactor to separate responsibilities  
-* Use debugger to test isolated sections  
-* Introduce simple patterns (e.g. Repository, Singleton)  
-* Write tests to prevent regressions
+## Debug e Manutenzione
 
 ---
 
-### Debugging tools
+### Come gestire codice legacy spaghetti?
 
-* Breakpoints  
+* Analizzare e comprendere la logica  
+* Rifattorizzare gradualmente per separare le responsabilità  
+* Usare il debugger per testare sezioni isolate  
+* Introdurre pattern semplici (es. Repository, Singleton)  
+* Scrivere test per prevenire regressioni
+
+---
+
+### Strumenti di debug
+
+* Breakpoint  
 * Watch / Autos  
 * Immediate Window  
 * Call Stack
 
-Essential tools in Visual Studio for effective debugging.
+Strumenti essenziali in Visual Studio per un debug efficace.
 
 ---
 
-## Typical Exercises
+## Esercizi tipici
 
 ---
 
-### Function that counts vowels
+### Funzione che conta le vocali
 
 ```vbnet
-Function CountVowels(input As String) As Integer
+Function ContaVocali(input As String) As Integer
     Dim count As Integer = 0
     For Each c As Char In input.ToLower()
         If "aeiou".Contains(c) Then count += 1
@@ -202,29 +202,29 @@ End Function
 
 ---
 
-### Persona class with ToString()
+### Classe Persona con ToString()
 
 ```vbnet
-Public Class Person
-    Public Property Name As String
-    Public Property Age As Integer
+Public Class Persona
+    Public Property Nome As String
+    Public Property Eta As Integer
 
-    Public Sub New(name As String, age As Integer)
-        Me.Name = name
-        Me.Age = age
+    Public Sub New(nome As String, eta As Integer)
+        Me.Nome = nome
+        Me.Eta = eta
     End Sub
 
     Public Overrides Function ToString() As String
-        Return $"{Name} is {Age} years old."
+        Return $"{Nome} ha {Eta} anni."
     End Function
 End Class
 ```
 
 ---
 
-### Difference between Shared and Non-Shared
+### Differenza tra Shared e Non-Shared
 
-* `Shared`: belongs to the class, accessible without creating an instance  
-* `Non-Shared`: each object has its own copy  
+* `Shared`: appartiene alla classe, accessibile senza creare un’istanza  
+* `Non-Shared`: ogni oggetto ha la propria copia  
 
-Useful for utility methods, e.g.: `Math.Sqrt()`
+Utile per metodi di utilità, es.: `Math.Sqrt()`

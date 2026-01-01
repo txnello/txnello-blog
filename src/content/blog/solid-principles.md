@@ -1,28 +1,28 @@
 ---
 title: "SOLID"
-description: "The SOLID principles."
+description: "I principi SOLID."
 pubDate: "2025-07-18"
 heroImage: '../../assets/solid-principles-cover.jpg'
 ---
 
-It's an acronym for 5 best practices that help in OOP.  
-Created by Uncle Bob.
+È un acronimo per 5 best practice che aiutano nella programmazione orientata agli oggetti (OOP).  
+Creato da Uncle Bob.
 
 ---
-### **S**ingle responsibility principle
+### **S**ingle responsibility principle (Principio di responsabilità singola)
 
-Classes must do only one thing and therefore have only one reason to change.
+Le classi devono fare una sola cosa e quindi avere un solo motivo per cambiare.
 
-For example, if a class functions as a data container, it should only change when the database structure changes. For instance, a `Book` class, which has parameters describing the various characteristics of a book, changes only if the `Book` table in the database is changed.
+Ad esempio, se una classe funziona come contenitore di dati, dovrebbe cambiare solo quando cambia la struttura del database. Per esempio, una classe `Book`, che ha parametri che descrivono le varie caratteristiche di un libro, cambia solo se viene modificata la tabella `Book` nel database.
 
-This is useful when we encounter merge conflicts, as we immediately know what the class is responsible for.
+Questo è utile quando ci troviamo di fronte a conflitti di merge, poiché sappiamo immediatamente di cosa si occupa la classe.
 
-#### Example of SRP violation and correction
+#### Esempio di violazione e correzione di SRP
 
-Suppose we have a class called `Invoice`, which, given a book and some data like quantity and price, calculates the receipt. Here's a structure that violates SRP:
+Supponiamo di avere una classe chiamata `Invoice` che, dato un libro e alcuni dati come quantità e prezzo, calcola la ricevuta. Ecco una struttura che viola SRP:
 
-- Properties  
-- Constructor  
+- Proprietà  
+- Costruttore  
 
 ```java  
 public double calculateTotal() {  
@@ -38,13 +38,13 @@ public void saveToFile(String filename) {
 }  
 ```  
 
-- **calculateTotal** is Business Logic (calculates the total)  
-- **printInvoice** is Printing Logic  
-- **saveToFile** is Persistence Logic (also saving to database or calling an API is persistence)
+- **calculateTotal** è logica di business (calcola il totale)  
+- **printInvoice** è logica di stampa  
+- **saveToFile** è logica di persistenza (anche salvare su database o chiamare un’API è persistenza)
 
-To fix this: create three separate classes each containing a single responsibility.
+Per risolvere: creare tre classi separate, ciascuna con una singola responsabilità.
 
-**Business logic:**
+**Logica di business:**
 
 ```java  
 public class Invoice {
@@ -72,7 +72,7 @@ public class Invoice {
 }
 ```
 
-**Print logic:**
+**Logica di stampa:**
 
 ```java  
 public class InvoicePrinter {
@@ -91,7 +91,7 @@ public class InvoicePrinter {
 }
 ```
 
-**Persistence logic:**
+**Logica di persistenza:**
 
 ```java  
 public class InvoicePersistence {
@@ -102,19 +102,19 @@ public class InvoicePersistence {
     }
 
     public void saveToFile(String filename) {
-        // Creates a file with given name and writes the invoice
+        // Crea un file con il nome fornito e scrive la fattura
     }
 }
 ```
 
 ---
-### **O**pen-closed principle
+### **O**pen-closed principle (Principio aperto/chiuso)
 
-Classes should be open to extension but closed to modification.
+Le classi dovrebbero essere aperte all’estensione ma chiuse alla modifica.
 
-That is, tested and deployed classes should not be modified. However, they should be extendable to add features.
+Cioè, classi già testate e deployate non dovrebbero essere modificate. Tuttavia, dovrebbero essere estendibili per aggiungere funzionalità.
 
-From the previous example, if we wanted to add database saving, instead of modifying `InvoicePersistence` by adding a method `saveToDatabase`, we could create an interface and extend it with two separate classes:
+Dall’esempio precedente, se volessimo aggiungere il salvataggio su database, invece di modificare `InvoicePersistence` aggiungendo un metodo `saveToDatabase`, potremmo creare un’interfaccia ed estenderla con due classi separate:
 
 ```java  
 interface InvoicePersistence {
@@ -126,7 +126,7 @@ interface InvoicePersistence {
 public class DatabasePersistence implements InvoicePersistence {
     @Override
     public void save(Invoice invoice) {
-        // Save to DB
+        // Salva su DB
     }
 }
 ```
@@ -135,28 +135,29 @@ public class DatabasePersistence implements InvoicePersistence {
 public class FilePersistence implements InvoicePersistence {
     @Override
     public void save(Invoice invoice) {
-        // Save to file
+        // Salva su file
     }
 }
 ```
 
-Our `InvoicePersistence` interface works as a generic type for all classes implementing it.
+La nostra interfaccia `InvoicePersistence` funziona come tipo generico per tutte le classi che la implementano.
 
 ![[Pasted image 20250701222924.png]]
 
-For example, if we had a class with the following property:
+Ad esempio, se avessimo una classe con la seguente proprietà:
 
 ```java  
 public class PersistenceManager {
     InvoicePersistence invoicePersistence;
 ```
 
-We could assign both `DatabasePersistence` and `FilePersistence` to `invoicePersistence`. It’s a matter of flexibility.
+Potremmo assegnare sia `DatabasePersistence` sia `FilePersistence` a `invoicePersistence`. È una questione di flessibilità.
 
 ---
-### **L**iskov substitution principle
+### **L**iskov substitution principle (Principio di sostituzione di Liskov)
 
-This principle expects child classes to inherit everything from the parent and at most extend it by adding features. So if I pass a child object to a method that expects a parent object, it shouldn't behave incorrectly.
+Questo principio prevede che le classi figlie ereditino tutto dalla classe padre e al massimo lo estendano aggiungendo funzionalità.  
+Quindi, se passo un oggetto figlio a un metodo che si aspetta un oggetto padre, non dovrebbe comportarsi in modo errato.
 
 ```csharp  
 class Rectangle {
@@ -182,20 +183,21 @@ class Square : Rectangle {
 }
 ```
 
-In this case, passing a `Square` as a `Rectangle` breaks functionality, because setting either Height or Width changes both — which shouldn't happen in a proper `Rectangle`.
+In questo caso, passare un `Square` come `Rectangle` rompe la funzionalità, perché impostare altezza o larghezza cambia entrambi — cosa che non dovrebbe accadere in un `Rectangle` corretto.
 
 ---
-### **I**nterface segregation principle
+### **I**nterface segregation principle (Principio di segregazione delle interfacce)
 
-Keeping interfaces separate means the developer shouldn’t be forced to implement a method they don’t need. Therefore, interfaces should be properly divided.
+Mantenere le interfacce separate significa che lo sviluppatore non dovrebbe essere costretto a implementare metodi che non gli servono.  
+Pertanto, le interfacce dovrebbero essere opportunamente suddivise.
 
 ---
-### **D**ependency inversion principle
+### **D**ependency inversion principle (Principio di inversione delle dipendenze)
 
-High-level modules shouldn’t depend on low-level ones. Both should depend on abstractions.  
-Moreover, abstractions shouldn’t depend on details — details should depend on abstractions.
+I moduli di alto livello non dovrebbero dipendere da quelli di basso livello. Entrambi dovrebbero dipendere da astrazioni.  
+Inoltre, le astrazioni non dovrebbero dipendere dai dettagli — i dettagli dovrebbero dipendere dalle astrazioni.
 
-Incorrect:
+Esempio errato:
 
 ```csharp  
 class Database {
@@ -203,7 +205,7 @@ class Database {
 }
 
 class OrderManager {
-    private Database db = new Database(); // Concrete dependency
+    private Database db = new Database(); // Dipendenza concreta
 
     public void Save(Order order) {
         db.SaveOrder(order);
@@ -211,7 +213,7 @@ class OrderManager {
 }
 ```
 
-Correct:
+Esempio corretto:
 
 ```csharp  
 interface IOrderRepository {

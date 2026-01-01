@@ -1,104 +1,104 @@
 ---
-title: "Introduction to C#"
-description: "Introduction to C#"
+title: "Introduzione a C#"
+description: "Introduzione a C#"
 pubDate: "2025-07-17"
 heroImage: '../../assets/intro-csharp-cover.jpg'
 ---
 
-### What is the difference between value types and reference types?
+### Qual è la differenza tra tipi valore e tipi riferimento?
 
-**Answer:**
+**Risposta:**
 
-In C#, types are divided into:
+In C#, i tipi sono divisi in:
 
-* **Value types** (e.g. `int`, `double`, `bool`, `struct`): hold the actual value directly. When passed as arguments to a function, the value is copied.
-* **Reference types** (e.g. `class`, `string`, `object`, `array`): hold a reference to the memory location. When passed, the address is passed, not a copy.
+* **Tipi valore** (es. `int`, `double`, `bool`, `struct`): contengono direttamente il valore. Quando vengono passati come argomenti a una funzione, il valore viene copiato.
+* **Tipi riferimento** (es. `class`, `string`, `object`, `array`): contengono un riferimento alla posizione di memoria. Quando vengono passati, viene passato l’indirizzo, non una copia.
 
-**Practical consequence:** Modifying a reference object inside a method will change the original. With value types, it won’t.
+**Conseguenza pratica:** modificare un oggetto di tipo riferimento dentro un metodo cambia l’originale. Con i tipi valore, no.
 
 ---
 
-### What is the role of `var` compared to explicit types?
+### Qual è il ruolo di `var` rispetto ai tipi espliciti?
 
-**Answer:** `var` is a keyword that allows the compiler to infer the variable’s type automatically, provided it’s initialized immediately.
+**Risposta:** `var` permette al compilatore di inferire automaticamente il tipo della variabile, purché venga inizializzata immediatamente.
 
-**Example:**
+**Esempio:**
 
 ```csharp
 var name = "Manuel"; // string
 var number = 42;     // int
 ```
 
-It's useful for writing cleaner code, especially with LINQ.  
-It’s not synonymous with “weak typing”: the type is still determined at compile-time.
+Utile per scrivere codice più pulito, soprattutto con LINQ.  
+Non è sinonimo di “tipizzazione debole”: il tipo viene comunque determinato a compile-time.
 
 ---
 
-### How does exception handling work (try, catch, finally)?
+### Come funziona la gestione delle eccezioni (try, catch, finally)?
 
-**Answer:**
+**Risposta:** 
 
-It's the mechanism for managing errors in a controlled way.
+È il meccanismo per gestire gli errori in modo controllato.
 
 ```csharp
 try
 {
-    int x = int.Parse("abc"); // Exception
+    int x = int.Parse("abc"); // Genera eccezione
 }
 catch (FormatException ex)
 {
-    Console.WriteLine("Format error.");
+    Console.WriteLine("Errore di formato.");
 }
 finally
 {
-    Console.WriteLine("This part always executes.");
+    Console.WriteLine("Questa parte viene sempre eseguita.");
 }
 ```
 
-* **try:** wraps code that might throw an exception  
-* **catch:** handles a specific exception (you can have multiple blocks)  
-* **finally:** always runs, useful for releasing resources
+* **try:** racchiude il codice che può generare eccezioni  
+* **catch:** gestisce una specifica eccezione (possono esserci più blocchi)  
+* **finally:** viene sempre eseguito, utile per rilasciare risorse
 
 ---
 
-## Object-Oriented Programming (OOP)
+## Programmazione Orientata agli Oggetti (OOP)
 
 ---
 
-### Explain inheritance, encapsulation, and polymorphism
+### Spiega ereditarietà, incapsulamento e polimorfismo
 
-**Answer:**
+**Risposta:**
 
-* **Inheritance:** a class can inherit members from a base class (`: BaseClass`), avoiding duplication  
-* **Encapsulation:** protects data via visibility (`private`, `protected`, `public`) and exposes it through properties/methods  
-* **Polymorphism:** the same method behaves differently depending on the instance. Achieved via `virtual`, `override`, or interfaces
+* **Ereditarietà:** una classe può ereditare membri da una base (`: BaseClass`), evitando duplicazioni  
+* **Incapsulamento:** protegge i dati tramite visibilità (`private`, `protected`, `public`) e li espone tramite proprietà/metodi  
+* **Polimorfismo:** lo stesso metodo si comporta diversamente a seconda dell’istanza. Si ottiene con `virtual`, `override` o interfacce
 
-**Example:**
+**Esempio:**
 
 ```csharp
 public class Animal
 {
-    public virtual void Sound() => Console.WriteLine("Generic sound");
+    public virtual void Sound() => Console.WriteLine("Suono generico");
 }
 
 public class Dog : Animal
 {
-    public override void Sound() => Console.WriteLine("Bark");
+    public override void Sound() => Console.WriteLine("Bau");
 }
 ```
 
 ---
 
-### Difference between abstract, virtual, override, sealed
+### Differenza tra abstract, virtual, override, sealed
 
-**Answer:**
+**Risposta:**
 
-* **abstract:** forces derived classes to implement the method  
-* **virtual:** defines a method that can be overridden  
-* **override:** redefines a virtual or abstract method  
-* **sealed:** prevents further overriding or inheritance
+* **abstract:** obbliga le classi derivate a implementare il metodo  
+* **virtual:** definisce un metodo che può essere sovrascritto  
+* **override:** ridefinisce un metodo virtuale o astratto  
+* **sealed:** impedisce ulteriori override o ereditarietà
 
-**Example:**
+**Esempio:**
 
 ```csharp
 public abstract class Vehicle
@@ -108,17 +108,17 @@ public abstract class Vehicle
 
 public class Car : Vehicle
 {
-    public override void Move() => Console.WriteLine("The car moves");
+    public override void Move() => Console.WriteLine("L’auto si muove");
 }
 ```
 
 ---
 
-### What are interfaces in C#?
+### Cosa sono le interfacce in C#?
 
-**Answer:**
+**Risposta:**
 
-An interface (`interface`) is a contract that only defines method signatures (no implementation). A class implementing it must define all members.
+Un’interfaccia (`interface`) è un contratto che definisce solo le firme dei metodi (nessuna implementazione). Una classe che la implementa deve definire tutti i membri.
 
 ```csharp
 public interface IPrintable
@@ -130,25 +130,25 @@ public class Document : IPrintable
 {
     public void Print()
     {
-        Console.WriteLine("Printed");
+        Console.WriteLine("Stampato");
     }
 }
 ```
 
-Interfaces are essential for loosely coupled programming, testability, and dependency injection.
+Le interfacce sono essenziali per codice loosely coupled, testabilità e dependency injection.
 
 ---
 
-## Delegates, LINQ, and async
+## Delegati, LINQ e async
 
 ---
 
-### What is a delegate?
+### Cos’è un delegate?
 
-**Answer:**
+**Risposta:**
 
-A delegate is a type that represents a reference to a method with a specific signature.  
-It allows passing methods as parameters.
+Un delegate è un tipo che rappresenta un riferimento a un metodo con una firma specifica.  
+Permette di passare metodi come parametri.
 
 ```csharp
 delegate int Operation(int x, int y);
@@ -159,61 +159,61 @@ Operation op = Add;
 Console.WriteLine(op(3, 4)); // Output: 7
 ```
 
-Useful with events, callbacks, and functional programming.
+Utile per eventi, callback e programmazione funzionale.
 
 ---
 
-### What is LINQ and how is it used?
+### Cos’è LINQ e come si usa?
 
-**Answer:**
+**Risposta:**
 
-LINQ (Language Integrated Query) is a set of methods for querying collections in C# using fluent syntax.
+LINQ (Language Integrated Query) è un insieme di metodi per interrogare collezioni in C# usando sintassi fluente.
 
-**Example:**
+**Esempio:**
 
 ```csharp
 List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
 var evens = numbers.Where(n => n % 2 == 0).ToList();
 ```
 
-Works on DB, XML, in-memory objects.  
-Allows filtering (`Where`), transformations (`Select`), sorting (`OrderBy`), aggregations (`Sum`, `Count`, etc.)
+Funziona su DB, XML, oggetti in memoria.  
+Permette filtraggio (`Where`), trasformazioni (`Select`), ordinamento (`OrderBy`), aggregazioni (`Sum`, `Count`), ecc.
 
 ---
 
-### Explain async, await, and Task
+### Spiega async, await e Task
 
-**Answer:**
+**Risposta:**
 
-C# supports asynchronous programming using `async`/`await` to handle non-blocking operations.
+C# supporta la programmazione asincrona con `async`/`await` per operazioni non bloccanti.
 
 ```csharp
 public async Task<string> GetDataAsync()
 {
-    await Task.Delay(1000); // Simulate wait
-    return "Response ready";
+    await Task.Delay(1000); // Simula attesa
+    return "Risposta pronta";
 }
 ```
 
-* **async:** marks the method as asynchronous  
-* **await:** suspends execution until the operation completes
+* **async:** indica che il metodo è asincrono  
+* **await:** sospende l’esecuzione finché l’operazione non termina
 
-Useful for I/O, HTTP calls, DB access, etc.
-
----
-
-## Data Access
+Utile per I/O, chiamate HTTP, accesso DB, ecc.
 
 ---
 
-### Difference between ADO.NET and Entity Framework
+## Accesso ai dati
 
-**Answer:**
+---
 
-* **ADO.NET:** manual DB access with `SqlConnection`, `SqlCommand`, etc.  
-* **Entity Framework (EF):** ORM that maps objects to tables, simplifies operations
+### Differenza tra ADO.NET e Entity Framework
 
-**ADO.NET example:**
+**Risposta:**
+
+* **ADO.NET:** accesso manuale al DB con `SqlConnection`, `SqlCommand`, ecc.  
+* **Entity Framework (EF):** ORM che mappa oggetti su tabelle, semplifica le operazioni
+
+**Esempio ADO.NET:**
 
 ```csharp
 using var conn = new SqlConnection(connString);
@@ -222,7 +222,7 @@ var cmd = new SqlCommand("SELECT * FROM Clients", conn);
 using var reader = cmd.ExecuteReader();
 ```
 
-**EF example:**
+**Esempio EF:**
 
 ```csharp
 var clients = context.Clients.Where(c => c.Active).ToList();
@@ -230,18 +230,18 @@ var clients = context.Clients.Where(c => c.Active).ToList();
 
 ---
 
-### How to protect against SQL Injection?
+### Come proteggersi da SQL Injection?
 
-**Answer:**
+**Risposta:**
 
-Use parameterized queries — never concatenate user input directly:
+Usare query parametrizzate — mai concatenare direttamente input dell’utente:
 
 ```csharp
 cmd.CommandText = "SELECT * FROM Users WHERE Name = @name";
 cmd.Parameters.AddWithValue("@name", userInput);
 ```
 
-In EF, it’s automatically handled via LINQ.
+In EF è gestito automaticamente tramite LINQ.
 
 ---
 
@@ -249,9 +249,9 @@ In EF, it’s automatically handled via LINQ.
 
 ---
 
-### What is IDisposable and how is it used?
+### Cos’è IDisposable e come si usa?
 
-**Answer:** `IDisposable` is an interface that defines the `Dispose()` method for releasing unmanaged resources (e.g. files, DB)
+**Risposta:** `IDisposable` è un’interfaccia che definisce il metodo `Dispose()` per liberare risorse non gestite (es. file, DB)
 
 ```csharp
 public class FileHandler : IDisposable
@@ -270,30 +270,33 @@ public class FileHandler : IDisposable
 }
 ```
 
-With `using`, `Dispose()` is called automatically.
+Con `using`, `Dispose()` viene chiamato automaticamente.
 
 ---
 
-### What are the SOLID principles?
+### Quali sono i principi SOLID?
 
-**Answer:**
+**Risposta:**
 
-* **S - Single Responsibility:** Each class should have one clear responsibility  
-* **O - Open/Closed Principle:** Code should be open to extension, closed to modification  
-* **L - Liskov Substitution:** Derived classes should be substitutable for base ones without breaking logic  
-* **I - Interface Segregation:** Interfaces should be specific, not force implementation of unnecessary methods  
-* **D - Dependency Inversion:** Dependencies should be abstract (e.g. via interfaces), not concrete
+* **S - Single Responsibility:** ogni classe deve avere una responsabilità chiara  
+* **O - Open/Closed Principle:** il codice deve essere aperto all’estensione, chiuso alla modifica  
+* **L - Liskov Substitution:** le classi derivate devono poter sostituire le base senza rompere la logica  
+* **I - Interface Segregation:** le interfacce devono essere specifiche, senza forzare implementazioni non necessarie  
+* **D - Dependency Inversion:** le dipendenze devono essere astratte (es. tramite interfacce), non concrete
 
-These principles help write scalable, testable, maintainable code.
-
----
-
-## Common Practice Exercises
+Aiutano a scrivere codice scalabile, testabile e manutenibile.
 
 ---
 
-### Write a function that sums only even numbers in a list
+## Esercizi pratici
+
+---
+
+### Scrivere una funzione che somma solo i numeri pari in una lista
 
 ```csharp
 public int SumEven(List<int> numbers)
+{
+    return numbers.Where(n => n % 2 == 0).Sum();
+}
 ```
