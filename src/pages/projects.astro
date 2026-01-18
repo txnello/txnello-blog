@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import H1 from "../components/h1.astro";
+import InfoLayout from "../layouts/InfoLayout.astro";
+import EtyxLogo from "../assets/etyx-logo.jpg";
+import ArvicLogo from "../assets/arvic-logo.jpg";
+import PatLogo from "../assets/pat-logo.jpg";
+import StartupLogo from "../assets/startup-logo.jpg";
+
+const projects = [
+     {
+          title: "Arvic",
+          description: "Driving athlete health insights as backend developer & DBA for a cutting-edge app.",
+          image: ArvicLogo,
+          url: "https://www.arvicsport.com/"
+     },
+     {
+          title: "Etyx",
+          description: "Crafting the web presence for a luxury shoe brand in my local region.",
+          image: EtyxLogo
+     },
+     {
+          title: "Pat Group (Zucchetti)",
+          description: "Building enterprise-grade features as full stack & mobile developer.",
+          image: PatLogo,
+          url: "https://www.pat.eu/"
+     },
+     {
+          title: "Be the Change",
+          description: "Launching my own startup to redefine how charity is done worldwide.",
+          image: StartupLogo
+     }];
+---
+
+<InfoLayout>
+     <div class="p-4 sm:pt-8 sm:px-12 pb-20 min-h-dvh">
+          <H1> Projects </H1>
+
+          <ul class="mt-4 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16 sm:gap-8">
+               {projects.map((project) => (
+                    <li>
+                         <a target="_blank" href={project.url}><Image src={project.image} alt={project.title} class="aspect-[1/1.33] object-center object-cover rounded-lg shadow-lg mb-4 sm:mb-0 sm:mr-4" /></a>
+                         <div class="p-1 sm:p-2">
+                              <h2 class="text-base text-zinc-100">{project.title}</h2>
+                              <p class="text-sm text-zinc-400 text-balance">{project.description}</p>
+                         </div>
+                    </li>
+               ))}
+          </ul>
+     </div>
+</InfoLayout>

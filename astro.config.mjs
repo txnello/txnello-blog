@@ -1,14 +1,28 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig, fontProviders } from 'astro/config';
 
-import icon from 'astro-icon';
+import tailwindcss from '@tailwindcss/vite';
+import react from '@astrojs/react';
+
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://www.txnello.com/',
-    integrations: [mdx(), sitemap(), icon()],
-    adapter: vercel({imageService: true}),
+   output: 'server',
+  vite: {
+    plugins: [tailwindcss()]
+  },
+
+  integrations: [react()],
+
+  experimental: {
+    fonts: [{
+      provider: fontProviders.google(),
+      name: "Geist",
+      cssVariable: "--font-geist",
+      fallbacks: ["Inter", "sans-serif"],
+    }]
+  },
+
+  adapter: vercel()
 });
