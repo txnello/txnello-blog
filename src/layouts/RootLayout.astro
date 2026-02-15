@@ -2,6 +2,8 @@
 import "../styles/global.css";
 import { ClientRouter } from 'astro:transitions';
 import LoadingIndicator from "astro-loading-indicator/component"
+import Navigation from "../components/navigation";
+import Link from "../components/link.astro";
 
 const { title, description } = Astro.props;
 
@@ -28,7 +30,18 @@ const defaultDescription = "I am a backend developer with a practical and ration
 	</head>
 	<body class="font-sans min-h-screen bg-zinc-900">
 		<LoadingIndicator color="#f4f4f5" height="2px" />
-		<slot />
+		
+		<main transition:animate="fade">
+			<slot />
+		</main>
+
+		<div class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50">
+			<Navigation client:load>
+				<Link href="/blog" variant="secondary">Blog</Link>
+				<Link href="/about" variant="secondary">About</Link>
+				<Link href="/contact" variant="secondary">Contact</Link>
+			</Navigation>
+		</div>
 	</body>
 </html>
 
