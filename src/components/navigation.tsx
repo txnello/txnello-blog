@@ -29,7 +29,9 @@ export default function Navigation({ children }: { children: React.ReactNode; })
                             onClick={() => setIsOpen(false)}
                             className="lg:hidden absolute z-50 w-full h-full flex flex-col gap-4 top-0 bg-zinc-900/20 backdrop-blur-md">
 
-                            <div className="fixed bottom-20 sm:bottom-32 left-4 sm:left-8 flex flex-col items-start justify-center gap-4">
+                            <div
+                                onClick={(e) => e.stopPropagation()}
+                                className="fixed bottom-20 sm:bottom-32 left-4 sm:left-8 flex flex-col items-start justify-center gap-4">
                                 <MobileLink href="/blog">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden>
                                         <title>Blog Icon</title>
@@ -98,14 +100,11 @@ type MobileLinkProps = {
 
 function MobileLink({ href, className, children }: MobileLinkProps) {
     return (
-        <motion.a
+        <a
             href={href}
-            initial={{ transform: "translateY(100px)", filter: "blur(20px)", opacity: 0 }}
-            transition={{ type: "spring", stiffness: 25, damping: 2, mass: 0.1 }}
-            animate={{ transform: "translateY(0px)", filter: "blur(0px)", opacity: 1 }}
-            exit={{ transform: "translateY(100px)", filter: "blur(20px)", opacity: 0 }}
+            data-astro-history="push"
             className={clsx("w-fit flex items-center justify-center gap-3 text-lg sm:text-2xl text-zinc-100 cursor-pointer", className)}>
             {children}
-        </motion.a>
+        </a>
     );
 }
