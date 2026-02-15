@@ -13,6 +13,7 @@ const pathname = Astro.url.pathname;
 
 <a href={href} 
     target={openNewTab ? "_blank" : undefined}
+    data-astro-history="push"
     class={clsx(
         "w-fit group flex items-center gap-1 text-base hover:text-zinc-100 cursor-pointer",
         pathname === href ? "text-zinc-100" : "text-zinc-500"

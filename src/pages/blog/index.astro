@@ -27,8 +27,8 @@ const articles = articlesResult?.data?.articles || [];
 
         <ul class="mt-4 flex items-center gap-4">
             <li>
-                <a href="/blog" class={clsx("w-fit px-4 py-1 text-sm bg-transparent rounded-full transition-all duration-300 ease-in-out",
-                    selectedCategory === "all" ? "text-white bg-zinc-100/20 outline-2 outline-offset-2 outline-zinc-100/20" : "text-zinc-400 hover:text-zinc-300"
+                <a href="/blog" data-astro-history="push" class={clsx("w-fit px-4 py-1 text-sm bg-zinc-100/20 rounded-full transition-all duration-300 ease-in-out",
+                    selectedCategory === "all" ? "text-white outline-2 outline-offset-2 outline-zinc-100/20" : "text-zinc-400 hover:text-zinc-300 bg-transparent"
                 )}>
                     All
                 </a>
@@ -39,6 +39,7 @@ const articles = articlesResult?.data?.articles || [];
                     <li>
                         <a
                             href={`/blog?category=${category.toLowerCase()}`}
+                            data-astro-history="push"
                             class={clsx("w-fit px-4 py-1 text-sm bg-transparent rounded-full transition-all duration-300 ease-in-out",
                                 selectedCategory === category.toLowerCase() ? "text-white bg-zinc-100/20 outline-2 outline-offset-2 outline-zinc-100/20" : "text-zinc-400 hover:text-zinc-200"
                             )}
@@ -57,6 +58,7 @@ const articles = articlesResult?.data?.articles || [];
                         <a
                             class="space-y-1 group"
                             href={`/blog/${article.data.slug}`}
+                            data-astro-history="push"
                         >
                             <h2 class="text-xl xl:text-2xl text-zinc-300 group-hover:text-white text-balance font-medium underline group-hover:underline-offset-2 decoration-transparent group-hover:decoration-zinc-500">
                                 {article.data.title}

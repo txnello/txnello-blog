@@ -1,9 +1,21 @@
 import clsx from "clsx/lite";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function Navigation({ children }: { children: React.ReactNode; }) {
     const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        const closeMenu = () => setIsOpen(false);
+
+        document.addEventListener('astro:after-swap', closeMenu);
+        window.addEventListener('popstate', closeMenu);
+
+        return () => {
+            document.removeEventListener('astro:after-swap', closeMenu);
+            window.removeEventListener('popstate', closeMenu);
+        };
+    }, []);
 
     return (
         <div className="flex items-center justify-center gap-12">
@@ -32,7 +44,7 @@ export default function Navigation({ children }: { children: React.ReactNode; })
                             <div
                                 onClick={(e) => e.stopPropagation()}
                                 className="fixed bottom-20 sm:bottom-32 left-4 sm:left-8 flex flex-col items-start justify-center gap-4">
-                                <MobileLink href="/blog">
+                                <MobileLink href="/blog" onClick={() => setIsOpen(false)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden>
                                         <title>Blog Icon</title>
                                         <path fill="currentColor" fillRule="evenodd" d="m20.83 10.715l-.518 1.932c-.605 2.255-.907 3.383-1.592 4.114a4 4 0 0 1-2.01 1.161c-.097.023-.195.04-.295.052c-.915.113-2.032-.186-4.064-.73c-2.255-.605-3.383-.907-4.114-1.592a4 4 0 0 1-1.161-2.011c-.228-.976.074-2.103.679-4.358l.517-1.932l.244-.905c.455-1.666.761-2.583 1.348-3.21a4 4 0 0 1 2.01-1.16c.976-.228 2.104.074 4.36.679c2.254.604 3.382.906 4.113 1.59a4 4 0 0 1 1.161 2.012c.228.976-.075 2.103-.679 4.358m-9.778-.91a.75.75 0 0 1 .919-.53l4.83 1.295a.75.75 0 1 1-.389 1.448l-4.83-1.294a.75.75 0 0 1-.53-.918m-.776 2.898a.75.75 0 0 1 .918-.53l2.898.777a.75.75 0 1 1-.388 1.448l-2.898-.776a.75.75 0 0 1-.53-.919" clipRule="evenodd" />
@@ -41,7 +53,7 @@ export default function Navigation({ children }: { children: React.ReactNode; })
                                     Blog
                                 </MobileLink>
 
-                                <MobileLink href="/about">
+                                <MobileLink href="/about" onClick={() => setIsOpen(false)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden>
                                         <title>Info Icon</title>
                                         <path fill="currentColor" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.634 1.634 0 0 1 1.149.133A9.958 9.958 0 0 0 12 22" opacity=".5" />
@@ -50,7 +62,7 @@ export default function Navigation({ children }: { children: React.ReactNode; })
                                     About
                                 </MobileLink>
 
-                                <MobileLink href="/contact">
+                                <MobileLink href="/contact" onClick={() => setIsOpen(false)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden>
                                         <title>Smiley Face Icon</title>
                                         <path fill="currentColor" d="M16.791 13.343c.781-.274 1.752-.31 3.78-.315h1.426c-.007.097.01-.097 0 0a1.478 1.478 0 0 1-.424.908l-7.65 7.69a1.262 1.262 0 0 1-.895.37c-.097.01.097-.006 0 0v-1.424c.005-2.03.041-3 .314-3.78a5.621 5.621 0 0 1 3.45-3.45" />
@@ -96,13 +108,15 @@ type MobileLinkProps = {
     href: string;
     className?: string;
     children: React.ReactNode;
+    onClick?: () => void;
 };
 
-function MobileLink({ href, className, children }: MobileLinkProps) {
+function MobileLink({ href, className, children, onClick }: MobileLinkProps) {
     return (
         <a
             href={href}
             data-astro-history="push"
+            onClick={onClick}
             className={clsx("w-fit flex items-center justify-center gap-3 text-lg sm:text-2xl text-zinc-100 cursor-pointer", className)}>
             {children}
         </a>
