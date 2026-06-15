@@ -5,6 +5,7 @@ import LoadingIndicator from "astro-loading-indicator/component"
 import Navigation from "../components/navigation";
 import Link from "../components/link.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 
 const { title, description } = Astro.props;
 
@@ -45,6 +46,7 @@ const defaultDescription = "I am a backend developer with a practical and ration
 		</div>
 
 		<SpeedInsights />
+		<Analytics />
 	</body>
 </html>
 
