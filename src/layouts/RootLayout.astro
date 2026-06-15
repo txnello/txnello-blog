@@ -4,6 +4,7 @@ import { ClientRouter } from 'astro:transitions';
 import LoadingIndicator from "astro-loading-indicator/component"
 import Navigation from "../components/navigation";
 import Link from "../components/link.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 const { title, description } = Astro.props;
 
@@ -42,6 +43,8 @@ const defaultDescription = "I am a backend developer with a practical and ration
 				<Link href="/contact" variant="secondary">Contact</Link>
 			</Navigation>
 		</div>
+
+		<SpeedInsights />
 	</body>
 </html>
 
